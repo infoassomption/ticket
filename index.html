@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#762583">
+  <meta name="description" content="Déclarez un problème informatique auprès du support de l’Ensemble scolaire Assomption Lyon.">
+  <link rel="icon" type="image/png" href="head.png">
+  <title>Support informatique | Assomption Lyon</title>
+  <style>
+    @font-face { font-family:"Pluto Light"; src:url("fonts/plutolight-webfont.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:"Pluto"; src:url("fonts/plutoregular-webfont.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:"Pluto"; src:url("fonts/plutobold-webfont.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+    @font-face { font-family:"Assomption"; src:url("fonts/assomptionttf-regular-webfont.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+    :root { color-scheme: light; --ink:#302537; --muted:#6c6270; --accent:#762583; --dark:#5e1c69; --paper:#faf8fb; --white:#fff; --line:#e9e1eb; --shadow:0 22px 65px rgba(77,35,84,.09); }
+    * { box-sizing:border-box; }
+    body { margin:0; min-width:320px; min-height:100vh; display:flex; flex-direction:column; background:var(--paper); color:var(--ink); font-family:"Pluto Light",sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; }
+    .topline { height:5px; background:var(--accent); }
+    header { width:100%; padding:0 max(24px,calc((100% - 1120px)/2)); min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:24px; background:var(--white); border-bottom:1px solid var(--line); box-shadow:0 3px 18px rgba(48,37,55,.035); }
+    .brand { display:inline-flex; align-items:center; gap:11px; text-decoration:none; }
+    .brand-mark { width:116px; height:50px; display:block; object-fit:contain; }
+    .brand-name { display:grid; gap:3px; }
+    .brand-name strong { font-family:"Pluto",sans-serif; font-size:14px; letter-spacing:.105em; font-weight:700; text-transform:uppercase; }
+    .brand-name span { color:var(--muted); font-size:11px; letter-spacing:.13em; text-transform:uppercase; }
+    .button:focus-visible { outline:3px solid #d9b6df; outline-offset:3px; }
+    main { position:relative; flex:1; display:grid; place-items:center; padding:72px 24px 80px; background:linear-gradient(112deg,#faf8fb 0%,#faf8fb 59%,#f3edf5 59%,#f3edf5 100%); }
+    .content { position:relative; width:min(1120px,100%); display:grid; grid-template-columns:minmax(0,1fr) minmax(350px,430px); align-items:center; column-gap:clamp(48px,8vw,112px); text-align:left; }
+    .eyebrow { margin:0 0 18px; color:var(--accent); font-size:12px; font-weight:700; letter-spacing:.17em; text-transform:uppercase; }
+    h1 { max-width:590px; margin:0; font-family:Georgia,"Times New Roman",serif; font-size:clamp(38px,6vw,58px); font-weight:400; letter-spacing:-.035em; line-height:1.08; }
+    .intro { max-width:510px; margin:20px 0 0; color:var(--muted); font-size:17px; line-height:1.7; }
+    .support-card { grid-column:2; grid-row:1 / span 3; margin:0; padding:36px 38px 34px; background:var(--white); border:1px solid rgba(118,37,131,.09); border-radius:4px; box-shadow:var(--shadow); }
+    .icon-wrap { width:54px; height:54px; margin:0 auto 19px; display:grid; place-items:center; background:#f4edf5; border-radius:50%; color:var(--accent); }
+    .icon-wrap svg { width:27px; height:27px; }
+    .support-card h2 { margin:0; font-size:19px; font-weight:650; letter-spacing:-.01em; }
+    .support-card p { margin:9px 0 25px; color:var(--muted); font-size:14px; line-height:1.6; }
+    .button { min-height:52px; padding:12px 18px; display:inline-flex; align-items:center; justify-content:center; gap:10px; border:1px solid var(--accent); border-radius:3px; background:var(--accent); color:var(--white); font-size:14px; font-weight:650; line-height:1.4; text-decoration:none; transition:background .18s ease,transform .18s ease; }
+    .button:hover { background:var(--dark); transform:translateY(-1px); }
+    .button svg { flex:none; width:16px; height:16px; }
+    .ticket-details { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:58px; }
+    .detail-block { padding:25px 28px; background:rgba(255,255,255,.78); border:1px solid var(--line); }
+    .detail-block h2 { margin:0 0 10px; font-size:17px; }
+    .detail-block p,.detail-block li { color:var(--muted); font-size:14px; line-height:1.65; }
+    .detail-block p { margin:0; }
+    .detail-block ul { margin:0; padding-left:19px; }
+    .detail-block li+li { margin-top:7px; }
+    .detail-block strong { color:var(--ink); font-family:"Pluto",sans-serif; font-weight:700; }
+    .hero-art { position:absolute; right:max(24px,calc((100% - 1120px)/2)); top:28px; width:min(35vw,390px); height:auto; opacity:.12; pointer-events:none; }
+    footer { width:min(1120px,calc(100% - 48px)); margin:0 auto; min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:16px; border-top:1px solid var(--line); color:#6c7a84; font-size:12px; }
+    footer a { text-decoration:none; }
+    footer a:hover { color:var(--dark); text-decoration:underline; }
+    @media(max-width:760px) { main { padding:58px 18px 64px; background:#faf8fb; } .content { display:flex; flex-direction:column; align-items:stretch; gap:0; } .intro { font-size:16px; } .support-card { margin-top:34px; padding:30px 21px 27px; } .button { width:100%; } .ticket-details { grid-template-columns:1fr; gap:14px; margin-top:28px; } .detail-block { padding:21px; } .hero-art { display:none; } }
+    @media(max-width:600px) { header { padding:0 18px; min-height:78px; } .brand-mark { width:150px; height:64px; } footer { width:calc(100% - 36px); min-height:76px; align-items:flex-start; justify-content:center; flex-direction:column; gap:6px; padding:15px 0; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <div class="topline" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="https://www.assomption-lyon.org/" aria-label="Ensemble scolaire Assomption Lyon, site principal">
+      <img class="brand-mark" src="image.png" alt="Ensemble scolaire Assomption Lyon">
+    </a>
+  </header>
+  <main>
+    <svg class="hero-art" viewBox="0 0 784 335" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M458 48C518-4 633-19 710 38c36 27 57 62 70 84" stroke="#762583" stroke-width="9"/>
+      <path d="M2 215c37 82 123 116 207 108 65-6 112-43 149-108-40 58-95 91-153 91-79 0-150-35-203-91Z" fill="#762583"/>
+      <path d="M72 216c34 54 89 83 145 83 56 0 108-30 141-84-35 48-84 71-140 71-55 0-108-23-146-70Z" fill="#762583"/>
+      <circle cx="594" cy="270" r="29" fill="#762583"/>
+    </svg>
+    <section class="content" aria-labelledby="page-title">
+      <p class="eyebrow">Ensemble scolaire Assomption Lyon&nbsp; · &nbsp;Services informatiques</p>
+      <h1 id="page-title">Ticket support informatique</h1>
+      <p class="intro">Un problème de matériel, de logiciel, de compte, d'accès ou de réseau&nbsp;? Faites votre demande en ligne&nbsp;: nous serons immédiatement prévenus.</p>
+      <div class="support-card">
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M2.75 19h18.5M9 16v3m6-3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9.5 9.25a2.5 2.5 0 1 1 4.7 1.2c-.8 1.25-2.2 1.15-2.2 2.55" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="14.75" r=".7" fill="currentColor"/></svg>
+        </div>
+        <h2>Faire un ticket / remonter un problème informatique</h2>
+        <p>Décrivez votre problème dans le formulaire en ligne pour prévenir le service informatique.</p>
+        <a class="button" href="https://forms.office.com/Pages/ResponsePage.aspx?id=AxFTBmdqV0qeNTx-82zLOjk8RFew_X1MibR8Rn88WLVUMjRNMVNKVVdOQ1IyQk00TVZTSURUWDhCUiQlQCN0PWcu" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">➜</span> Faire un ticket / remonter un problème informatique
+        </a>
+      </div>
+      <div class="ticket-details">
+        <section class="detail-block" aria-labelledby="contact-title">
+          <h2 id="contact-title">Être recontacté</h2>
+          <p>Indiquez votre <strong>adresse e-mail</strong> (dernière question du formulaire) si vous souhaitez être recontacté&nbsp;: vous recevrez un accusé de réception avec votre numéro de ticket (INT-xxxxx), puis un second e-mail lorsque votre demande sera résolue. Sans adresse e-mail, votre demande est bien prise en compte, mais le service informatique ne pourra pas vous recontacter.</p>
+        </section>
+        <section class="detail-block" aria-labelledby="request-title">
+          <h2 id="request-title">Bien remplir sa demande</h2>
+          <ul>
+            <li>Site et salle&nbsp;: précisez où intervenir (ex. Bellevue, CBUR 2).</li>
+            <li>Urgence&nbsp;: «&nbsp;Bloquant&nbsp;» uniquement si vous ne pouvez plus travailler.</li>
+            <li>Description&nbsp;: décrivez le problème, le message d’erreur éventuel et depuis quand il se produit. Essayez d’être le plus clair possible.</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer><span>Ensemble scolaire Assomption Lyon</span><a href="https://www.assomption-lyon.org/">Site de l’établissement</a></footer>
+</body>
+</html>
